@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despertador Futurista</title>
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-SEU-ID-AQUI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="page-layout">
+        <!-- Anúncio Esquerdo -->
+        <div class="ad-container ad-left">
+            <div class="ad-placeholder">
+                <span>Espaço para Anúncio</span>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-SEU-ID-AQUI"
+                     data-ad-slot="SEU-SLOT-AQUI"
+                     data-ad-format="vertical"
+                     data-full-width-responsive="false"></ins>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="main-content">
+            <div class="container" role="main">
+                <div class="clock-container" role="timer">
+                    <div class="current-time" role="text" aria-label="Hora atual">00:00:00</div>
+                    <div class="date" role="text" aria-label="Data atual">01 Jan 2025</div>
+                    <div class="timezone" role="text">Fuso Horário: <span id="timezone"></span></div>
+                </div>
+
+                <div class="features-container">
+                    <div class="timer-container" role="region" aria-label="Timer Rápido">
+                        <h3>Timer Rápido</h3>
+                        <div class="quick-timer">
+                            <button class="neon-button" data-time="5" aria-label="Timer de 5 minutos">5 min</button>
+                            <button class="neon-button" data-time="10" aria-label="Timer de 10 minutos">10 min</button>
+                            <button class="neon-button" data-time="15" aria-label="Timer de 15 minutos">15 min</button>
+                            <button class="neon-button" data-time="30" aria-label="Timer de 30 minutos">30 min</button>
+                        </div>
+                    </div>
+
+                    <div class="alarm-container" role="region" aria-label="Configuração de Alarme">
+                        <!-- Botão de parar alarme no topo -->
+                        <button id="stopAlarm" class="stop-alarm-button hidden" aria-label="Parar Alarme">
+                            <span class="stop-icon">⏹</span>
+                            Parar Alarme
+                        </button>
+                        
+                        <div class="alarm-form">
+                            <div class="alarm-inputs">
+                                <div class="time-input-wrapper">
+                                    <input type="text" id="alarmTime" class="time-input" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" placeholder="00:00" maxlength="5" aria-label="Horário do alarme (formato 24h)">
+                                </div>
+                                <input type="text" id="alarmLabel" class="text-input" placeholder="Descrição do alarme" aria-label="Descrição do alarme">
+                                <select id="alarmSound" class="neon-input" aria-label="Som do Alarme">
+                                    <option value="morning-melody">Melodia Matinal</option>
+                                    <option value="gentle-chimes">Sinos Suaves</option>
+                                    <option value="cyber-dream">Cyber Dream</option>
+                                    <option value="space-signal">Space Signal</option>
+                                    <option value="digital-bells">Sinos Digitais</option>
+                                    <option value="crystal-tune">Cristal</option>
+                                    <option value="tech-lullaby">Cantiga Tech</option>
+                                    <option value="star-chimes">Sinos Estelares</option>
+                                    <option value="quantum-melody">Melodia Quântica</option>
+                                    <option value="neon-music">Música Neon</option>
+                                </select>
+                                <div class="sound-controls">
+                                    <button class="play-sound-mini" title="Testar Som" aria-label="Testar Som">▶</button>
+                                    <input type="range" id="volumeControl" min="0" max="100" value="50" class="volume-slider" aria-label="Volume do som">
+                                </div>
+                            </div>
+                            <button id="setAlarm" class="neon-button">Definir Alarme</button>
+                        </div>
+                        <div class="alarm-list">
+                            <h3>Alarmes Ativos</h3>
+                            <ul id="activeAlarms" role="list" aria-label="Lista de alarmes ativos"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="toggleTheme" class="neon-button" aria-label="Mudar Tema">Mudar Tema</button>
+                    <button id="toggleFormat" class="neon-button" aria-label="Alternar formato 12/24 horas">12h/24h</button>
+                    <button id="openThemeCustomizer" class="neon-button" aria-label="Personalizar Tema">Personalizar Tema</button>
+                </div>
+
+                <!-- Modal de Personalização de Tema -->
+                <div id="themeCustomizer" class="modal hidden" role="dialog" aria-labelledby="themeCustomizerTitle">
+                    <div class="modal-content">
+                        <h2 id="themeCustomizerTitle">Personalizar Tema</h2>
+                        <div class="color-picker-container">
+                            <label for="primaryColor">Cor Primária:</label>
+                            <input type="color" id="primaryColor" value="#00ff88">
+                            
+                            <label for="secondaryColor">Cor Secundária:</label>
+                            <input type="color" id="secondaryColor" value="#00ccff">
+                            
+                            <label for="backgroundColor">Cor de Fundo:</label>
+                            <input type="color" id="backgroundColor" value="#0a0a2a">
+                        </div>
+                        <div class="modal-buttons">
+                            <button id="saveTheme" class="neon-button">Salvar</button>
+                            <button id="closeThemeCustomizer" class="neon-button">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anúncio Direito -->
+        <div class="ad-container ad-right">
+            <div class="ad-placeholder">
+                <span>Espaço para Anúncio</span>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-SEU-ID-AQUI"
+                     data-ad-slot="SEU-SLOT-AQUI"
+                     data-ad-format="vertical"
+                     data-full-width-responsive="false"></ins>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
