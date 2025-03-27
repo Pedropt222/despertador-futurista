@@ -523,7 +523,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .logo-text {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     letter-spacing: 0.2em;
     color: var(--primary-color);
@@ -531,12 +531,12 @@ input[type="color"]::-webkit-color-swatch {
         0 0 10px var(--primary-color),
         0 0 20px var(--primary-color),
         0 0 30px var(--primary-color);
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: logoGlow 2s ease-in-out infinite alternate;
 }
 
 .logo-subtext {
     display: block;
-    font-size: 1rem;
+    font-size: 1.2rem;
     letter-spacing: 0.5em;
     color: var(--secondary-color);
     margin-top: 0.5rem;
@@ -545,7 +545,7 @@ input[type="color"]::-webkit-color-swatch {
         0 0 10px var(--secondary-color);
 }
 
-@keyframes glow {
+@keyframes logoGlow {
     from {
         text-shadow: 
             0 0 10px var(--primary-color),
