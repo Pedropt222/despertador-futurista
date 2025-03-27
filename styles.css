@@ -44,6 +44,12 @@ body {
     align-items: center;
 }
 
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding-bottom: 4rem; /* Espaço para o footer fixo */
+}
+
 .bottom-ad {
     max-width: 1200px;
     height: 90px;
@@ -51,12 +57,6 @@ body {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-bottom: 4rem; /* Espaço para o footer fixo */
-}
-
-.main-content {
-    flex: 1;
-    min-width: 0;
-    padding-bottom: 4rem; /* Espaço para o footer fixo */
 }
 
 footer {
