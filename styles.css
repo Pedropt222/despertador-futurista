@@ -708,36 +708,6 @@ input[type="color"]::-webkit-color-swatch {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.ebook-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(0, 255, 136, 0.1),
-        rgba(0, 204, 255, 0.1),
-        transparent
-    );
-    animation: cardShine 2s linear infinite;
-}
-
-@keyframes cardShine {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-.ebook-card:hover {
-    transform: translateY(-5px);
-}
-
 .ebook-cover {
     width: 100%;
     max-width: 300px;
@@ -749,7 +719,22 @@ input[type="color"]::-webkit-color-swatch {
     background: var(--background-color);
     position: relative;
     z-index: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ebook-cover[loading] {
+    background: linear-gradient(110deg, var(--background-color) 8%, #00ff88 18%, var(--background-color) 33%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+.ebook-card:hover {
+    transform: translateY(-5px);
 }
 
 .ebook-description {
