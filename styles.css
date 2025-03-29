@@ -717,11 +717,32 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ebook-description {
-    color: #ccc;
-    margin: 0.5rem 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    max-width: 100%;
+    color: var(--text-color);
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 300px;
+    padding-right: 10px;
+}
+
+.ebook-description::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ebook-description::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 3px;
+}
+
+.ebook-description::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.ebook-description::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
 }
 
 .ebook-price {
