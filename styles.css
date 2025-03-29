@@ -747,11 +747,19 @@ input[type="color"]::-webkit-color-swatch {
     width: 100%;
     max-width: 280px;
     font-size: 1.1rem;
+    text-decoration: none;
+    margin: 0 auto;
 }
 
 .buy-button:hover {
     background: var(--secondary-color);
     transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.buy-button:active {
+    transform: translateY(0);
 }
 
 /* Ajustes para telas pequenas */
