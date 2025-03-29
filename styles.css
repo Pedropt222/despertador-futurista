@@ -4,6 +4,8 @@
     --background-color: #0a0a2a;
     --text-color: #ffffff;
     --modal-background: rgba(10, 10, 42, 0.95);
+    --primary-color-rgb: 0, 255, 136;
+    --secondary-color-rgb: 0, 204, 255;
 }
 
 * {
@@ -693,18 +695,38 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ebook-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--background-color);
     border-radius: 10px;
     padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    max-width: 400px;
-    margin: 0 auto;
-    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ebook-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--primary-color-rgb), 0.1),
+        rgba(var(--secondary-color-rgb), 0.1),
+        transparent
+    );
+    animation: shine 2s linear infinite;
+}
+
+.ebook-card:hover {
+    transform: translateY(-5px);
 }
 
 .ebook-cover {
@@ -716,17 +738,16 @@ input[type="color"]::-webkit-color-swatch {
     margin-bottom: 1rem;
     aspect-ratio: 3/4;
     background: var(--background-color);
-}
-
-.ebook-cover[loading] {
-    background: linear-gradient(110deg, var(--background-color) 8%, var(--primary-color) 18%, var(--background-color) 33%);
-    background-size: 200% 100%;
-    animation: shine 1.5s linear infinite;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes shine {
+    from {
+        left: -100%;
+    }
     to {
-        background-position-x: -200%;
+        left: 100%;
     }
 }
 
