@@ -660,16 +660,16 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /* Store icon styles */
-.store-link {
-    color: var(--primary-color);
+.store-link, .blog-link {
+    color: var(--text-color);
     font-size: 1.5rem;
     margin-left: 1rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.store-link:hover {
-    color: var(--secondary-color);
+.store-link:hover, .blog-link:hover {
+    color: var(--primary-color);
 }
 
 .back-link {
