@@ -661,7 +661,7 @@ input[type="color"]::-webkit-color-swatch {
 
 /* Store icon styles */
 .store-link, .blog-link {
-    color: var(--text-color);
+    color: var(--primary-color);
     font-size: 1.5rem;
     margin-left: 1rem;
     text-decoration: none;
@@ -669,7 +669,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .store-link:hover, .blog-link:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .back-link {
