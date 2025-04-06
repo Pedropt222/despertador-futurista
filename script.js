@@ -48,26 +48,35 @@ class FuturisticAlarmClock {
         const slider = document.querySelector('.partner-slides');
         const prevBtn = document.querySelector('.slider-nav.prev');
         const nextBtn = document.querySelector('.slider-nav.next');
-        const slideWidth = 220; // Width of slide + gap
-        let autoScrollInterval;
+        const slideWidth = 1; // Movimento mais suave, pixel por pixel
+        let isScrolling = false;
 
         function scrollNext() {
-            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-                // Se chegou ao final, volta ao início
-                slider.scrollTo({
-                    left: 0,
-                    behavior: 'smooth'
-                });
-            } else {
-                slider.scrollBy({
-                    left: slideWidth,
-                    behavior: 'smooth'
-                });
+            if (!isScrolling) {
+                isScrolling = true;
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                    // Se chegou ao final, volta ao início suavemente
+                    slider.scrollTo({
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 1000);
+                } else {
+                    slider.scrollBy({
+                        left: slideWidth,
+                        behavior: 'auto'
+                    });
+                    isScrolling = false;
+                }
             }
         }
 
+        let autoScrollInterval;
+
         function startAutoScroll() {
-            autoScrollInterval = setInterval(scrollNext, 3000); // Muda a cada 3 segundos
+            autoScrollInterval = setInterval(scrollNext, 30); // Move a cada 30ms para movimento suave
         }
 
         function stopAutoScroll() {
@@ -78,16 +87,19 @@ class FuturisticAlarmClock {
             prevBtn.addEventListener('click', () => {
                 stopAutoScroll();
                 slider.scrollBy({
-                    left: -slideWidth,
+                    left: -150,
                     behavior: 'smooth'
                 });
-                startAutoScroll();
+                setTimeout(startAutoScroll, 1000);
             });
 
             nextBtn.addEventListener('click', () => {
                 stopAutoScroll();
-                scrollNext();
-                startAutoScroll();
+                slider.scrollBy({
+                    left: 150,
+                    behavior: 'smooth'
+                });
+                setTimeout(startAutoScroll, 1000);
             });
 
             // Pausa a animação quando o mouse está sobre o slider

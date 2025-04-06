@@ -668,11 +668,11 @@ input[type="color"]::-webkit-color-swatch {
     gap: 1rem;
     padding: 1rem;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     -ms-overflow-style: none;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
+    will-change: scroll-position;
 }
 
 .partner-slide {
