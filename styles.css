@@ -666,9 +666,13 @@ input[type="color"]::-webkit-color-swatch {
 .partner-slides {
     display: flex;
     gap: 1rem;
-    overflow-x: hidden;
+    padding: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     scroll-behavior: smooth;
-    padding: 1rem 0;
+    transition: transform 0.3s ease;
 }
 
 .partner-slide {
@@ -702,6 +706,34 @@ input[type="color"]::-webkit-color-swatch {
 .partner-slide span {
     font-size: 0.9rem;
     text-align: center;
+}
+
+.partner-slide {
+    transition: transform 0.3s ease;
+}
+
+.partner-slide:hover {
+    transform: scale(1.05);
+}
+
+.partner-slides {
+    scroll-behavior: smooth;
+    transition: all 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.partner-slide {
+    animation: slideIn 0.5s ease forwards;
 }
 
 .slider-nav {

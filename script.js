@@ -49,21 +49,53 @@ class FuturisticAlarmClock {
         const prevBtn = document.querySelector('.slider-nav.prev');
         const nextBtn = document.querySelector('.slider-nav.next');
         const slideWidth = 220; // Width of slide + gap
+        let autoScrollInterval;
 
-        if (slider && prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', () => {
-                slider.scrollBy({
-                    left: -slideWidth,
+        function scrollNext() {
+            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                // Se chegou ao final, volta ao início
+                slider.scrollTo({
+                    left: 0,
                     behavior: 'smooth'
                 });
-            });
-
-            nextBtn.addEventListener('click', () => {
+            } else {
                 slider.scrollBy({
                     left: slideWidth,
                     behavior: 'smooth'
                 });
+            }
+        }
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(scrollNext, 3000); // Muda a cada 3 segundos
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
+        }
+
+        if (slider && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                slider.scrollBy({
+                    left: -slideWidth,
+                    behavior: 'smooth'
+                });
+                startAutoScroll();
             });
+
+            nextBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                scrollNext();
+                startAutoScroll();
+            });
+
+            // Pausa a animação quando o mouse está sobre o slider
+            slider.addEventListener('mouseenter', stopAutoScroll);
+            slider.addEventListener('mouseleave', startAutoScroll);
+
+            // Inicia a animação automática
+            startAutoScroll();
         }
     }
 
