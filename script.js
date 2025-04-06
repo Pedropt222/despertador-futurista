@@ -9,6 +9,7 @@ class FuturisticAlarmClock {
         this.currentTestSound = null;
         this.alarmTimeout = null;
         this.init();
+        this.initPartnerSlider();
     }
 
     initAudioContext() {
@@ -41,6 +42,29 @@ class FuturisticAlarmClock {
         gainNode.connect(this.audioContext.destination);
         
         return { oscillator, gainNode };
+    }
+
+    initPartnerSlider() {
+        const slider = document.querySelector('.partner-slides');
+        const prevBtn = document.querySelector('.slider-nav.prev');
+        const nextBtn = document.querySelector('.slider-nav.next');
+        const slideWidth = 220; // Width of slide + gap
+
+        if (slider && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({
+                    left: -slideWidth,
+                    behavior: 'smooth'
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({
+                    left: slideWidth,
+                    behavior: 'smooth'
+                });
+            });
+        }
     }
 
     init() {
