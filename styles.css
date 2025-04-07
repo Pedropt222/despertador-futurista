@@ -642,6 +642,112 @@ input[type="color"]::-webkit-color-swatch {
     }
 }
 
+/* Seção de Recursos */
+.features-section {
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.features-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* Seção de FAQ */
+.faq-section {
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+}
+
+.faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.faq-item p {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* Seção de Anúncios */
+.ad-section {
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.ad-wrapper {
+    max-width: 728px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.ad-wrapper h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
 /* Estilos do Slider de Sites Parceiros */
 .partner-sites-container {
     margin-top: 2rem;
